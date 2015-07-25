@@ -2,7 +2,7 @@ var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var Insta = require('instagram-node-lib');
-var callback_url = 'https://vjkxqdalxr.localtunnel.me/callback';
+var callback_url = 'https://catsdaifkl.localtunnel.me' + '/callback';
 
 app.get('/', function (req, res){
   res.sendfile('./index.html');

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>NBK Farms</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+
+    <div id="insta"></div>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      var socket = io();
+
+      socket.on('insta', function (resp) {
+        var url = resp.url;
+        $.ajax({
+            url: url,
+            type: 'POST',
+            crossDomain: true,
+            dataType: 'jsonp'
+        }).done(function (data) {
+          showInstas(data);
+        });
+      });
+
+      function showInstas (data) {
+        var list = data.data;
+        var insta = '';
+        insta = '<img src="' + list[0].images.low_resolution.url + '"/>';
+        $('#insta').prepend(insta +'<br>');
+      }
+    </script>
+  </body>
+</html>

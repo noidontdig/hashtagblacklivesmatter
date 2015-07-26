@@ -4,7 +4,7 @@ var io = require('socket.io')(server);
 var Insta = require('instagram-node-lib');
 var Twit = require('twit');
 
-var callback_url = 'https://wsvbgzitzs.localtunnel.me' + '/callback';
+var callback_url = 'https://blcklvsmttr.herokuapp.com' + '/callback';
 var hashtag = 'blacklivesmatter';
 
 app.get('/', function (req, res){

@@ -36,13 +36,14 @@
             dataType: 'jsonp'
         }).done(function (data) {
           loading = false;
-          showInstas(data);
+          showInsta(data);
         });
       });
 
-      function showInstas (data) {
-        var url = data.data[0].images.standard_resolution.url
-        document.body.style.backgroundImage = 'url(' + url + ')';
+      function showInsta (data) {
+        var insta = data.data[0];
+        document.body.style.backgroundImage = 'url(' + insta.images.standard_resolution.url + ')';
+        document.getElementById('insta').innerHTML = '@' + insta.user.username;
       }
     </script>
   </body>

@@ -8,15 +8,24 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   color: #fff;
+  margin: 0;
 }
 
-#tweet {
+#tweet, #insta {
   background-color: #000;
   font-size: 28px;
   opacity: .8;
-  padding: 10px 0;
   position: absolute;
+}
+
+#tweet {
+  padding: 10px 0;
   text-align: center;
   top: 50%;
   width: 100%;
+}
+
+#insta {
+  bottom: 20px;
+  right: 20px;
 }

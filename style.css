@@ -11,6 +11,10 @@ body {
   margin: 0;
 }
 
+h1 {
+  margin-left: 20px;
+}
+
 #tweet, #insta {
   background-color: #000;
   font-size: 28px;

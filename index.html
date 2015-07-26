@@ -1,12 +1,14 @@
 <!doctype html>
 <html>
   <head>
-    <title>NBK Farms</title>
+    <title>#blacklivesmatter</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>#blacklivesmatter</h1>
 
     <div id="insta"></div>
+    <div id="tweet"></div>
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -14,7 +16,18 @@
     <script>
       var socket = io();
 
+      // Twitter
+      socket.on('tweet', function (resp) {
+        var tweet = resp.tweet;
+        document.getElementById('tweet').innerHTML = tweet.text;
+      });
+
+      // Instsgram
+      var loading = false;
       socket.on('insta', function (resp) {
+        if (loading) return;
+
+        loading = true;
         var url = resp.url;
         $.ajax({
             url: url,
@@ -22,15 +35,14 @@
             crossDomain: true,
             dataType: 'jsonp'
         }).done(function (data) {
+          loading = false;
           showInstas(data);
         });
       });
 
       function showInstas (data) {
-        var list = data.data;
-        var insta = '';
-        insta = '<img src="' + list[0].images.low_resolution.url + '"/>';
-        $('#insta').prepend(insta +'<br>');
+        var url = data.data[0].images.standard_resolution.url
+        document.body.style.backgroundImage = 'url(' + url + ')';
       }
     </script>
   </body>

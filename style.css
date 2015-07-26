@@ -9,3 +9,14 @@ body {
   background-size: contain;
   color: #fff;
 }
+
+#tweet {
+  background-color: #000;
+  font-size: 28px;
+  opacity: .8;
+  padding: 10px 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+}

@@ -8,6 +8,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   color: #fff;
+  font-family: 'Inconsolata';
   margin: 0;
 }
 
@@ -27,6 +28,15 @@ h1 {
   text-align: center;
   top: 50%;
   width: 100%;
+}
+
+#tweet a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#tweet a:hover {
+  text-decoration: underline;
 }
 
 #insta {

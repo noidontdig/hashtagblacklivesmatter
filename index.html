@@ -3,6 +3,7 @@
   <head>
     <title>#blacklivesmatter</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <h1>#blacklivesmatter</h1>
@@ -19,15 +20,13 @@
       // Twitter
       socket.on('tweet', function (resp) {
         var tweet = resp.tweet;
-        document.getElementById('tweet').innerHTML = tweet.text;
+        var url = 'http://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id_str;
+        document.getElementById('tweet').innerHTML = '<a href="' + url + '" target="_blank">' + tweet.text + '</a>';
       });
 
-      // Instsgram
-      var loading = false;
+      // Instagram
       socket.on('insta', function (resp) {
-        if (loading) return;
 
-        loading = true;
         var url = resp.url;
         $.ajax({
             url: url,
@@ -35,7 +34,6 @@
             crossDomain: true,
             dataType: 'jsonp'
         }).done(function (data) {
-          loading = false;
           showInsta(data);
         });
       });

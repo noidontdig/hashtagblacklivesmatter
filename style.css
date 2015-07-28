@@ -8,38 +8,47 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   color: #fff;
-  font-family: 'Inconsolata';
+  font-family: 'Droid Sans Mono';
   margin: 0;
 }
 
 h1 {
-  margin-left: 20px;
+  display: inline-block;
+  font-size: 28px;
+  margin-left: 10px;
+  padding: 0 10px;
+}
+
+a {
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, #tweet, #insta {
+  background-color: #000;
+  opacity: .8;
 }
 
 #tweet, #insta {
-  background-color: #000;
-  font-size: 28px;
-  opacity: .8;
+  font-size: 22px;
   position: absolute;
 }
 
 #tweet {
-  padding: 10px 0;
+  box-sizing: border-box;
+  padding: 10px;
   text-align: center;
   top: 50%;
-  width: 100%;
-}
-
-#tweet a {
-  color: #fff;
-  text-decoration: none;
-}
-
-#tweet a:hover {
-  text-decoration: underline;
+  width: 100%
 }
 
 #insta {
   bottom: 20px;
-  right: 20px;
+  padding: 0 10px;
+  right: 10px;
 }

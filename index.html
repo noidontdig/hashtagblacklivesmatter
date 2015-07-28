@@ -3,7 +3,7 @@
   <head>
     <title>#blacklivesmatter</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <h1>#blacklivesmatter</h1>
@@ -21,12 +21,11 @@
       socket.on('tweet', function (resp) {
         var tweet = resp.tweet;
         var url = 'http://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id_str;
-        document.getElementById('tweet').innerHTML = '<a href="' + url + '" target="_blank">' + tweet.text + '</a>';
+        document.getElementById('tweet').innerHTML = '<a href="' + url + '" target="_blank">@' + tweet.user.screen_name + ': ' + tweet.text + '</a>';
       });
 
       // Instagram
       socket.on('insta', function (resp) {
-
         var url = resp.url;
         $.ajax({
             url: url,
@@ -40,8 +39,9 @@
 
       function showInsta (data) {
         var insta = data.data[0];
+        var username = '<a href="' + insta.link + '" target="_blank">@' + insta.user.username + '</a>';
         document.body.style.backgroundImage = 'url(' + insta.images.standard_resolution.url + ')';
-        document.getElementById('insta').innerHTML = '@' + insta.user.username;
+        document.getElementById('insta').innerHTML = username;
       }
     </script>
   </body>

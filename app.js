@@ -8,6 +8,9 @@ var Twit = require('twit');
 var callback_url = process.env.CALLBACK_URL + '/callback';
 var hashtag = 'blacklivesmatter';
 
+io.set('transports', ['xhr-polling']);
+io.set('polling duration', 10);
+
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });

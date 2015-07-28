@@ -8,11 +8,11 @@ var Twit = require('twit');
 var callback_url = process.env.CALLBACK_URL + '/callback';
 var hashtag = 'blacklivesmatter';
 
-app.get('/', function (req, res){
+app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/style.css', function (req, res){
+app.get('/style.css', function (req, res) {
   res.sendFile(__dirname + '/style.css');
 });
 
@@ -45,18 +45,17 @@ Insta.subscriptions.subscribe({
   id: '#'
 });
 
-app.get('/callback', function (req, res){
+app.get('/callback', function (req, res) {
   Insta.subscriptions.handshake(req, res);
 });
 
 app.post('/callback', function (req, res) {
-  console.log('POST ' + req.url);
   var data = req.body;
   var url = 'https://api.instagram.com/v1/tags/'+ hashtag + '/media/recent?client_id=' + config.instagram.clientid;
   io.sockets.emit('insta', { url: url });
   res.end();
 });
 
-server.listen((process.env.PORT || 3000), function(){
+server.listen((process.env.PORT || 3000), function () {
   console.log('listening on *:3000');
 });

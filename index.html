@@ -6,7 +6,17 @@
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <h1>#blacklivesmatter</h1>
+    <div id="header">
+      <h1>#blacklivesmatter</h1>
+      <div id="about">
+        <p>follow the real-time #blacklivesmatter conversation from
+          <a href="https://twitter.com/hashtag/blacklivesmatter">twitter</a> +
+          <a href="https://instagram.com/explore/tags/blacklivesmatter/">instagram</a>
+        </p>
+        <p>made with &lt;3 by <a href="http://alexq.in">@alexqin</a></p>
+        <p>#blacklivesmatter</p>
+      </div>
+    </div>
 
     <div id="insta"></div>
     <div id="tweet"></div>
@@ -21,7 +31,7 @@
       socket.on('tweet', function (resp) {
         var tweet = resp.tweet;
         var url = 'http://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id_str;
-        document.getElementById('tweet').innerHTML = '<a href="' + url + '" target="_blank">@' + tweet.user.screen_name + ': ' + tweet.text + '</a>';
+        document.getElementById('tweet').innerHTML = '<a href="' + url + '" target="_blank">&commat;' + tweet.user.screen_name + ': ' + tweet.text + '</a>';
       });
 
       // Instagram
@@ -39,7 +49,7 @@
 
       function showInsta (data) {
         var insta = data.data[0];
-        var username = '<a href="' + insta.link + '" target="_blank">@' + insta.user.username + '</a>';
+        var username = '<a href="' + insta.link + '" target="_blank">&commat;' + insta.user.username + '</a>';
         document.body.style.backgroundImage = 'url(' + insta.images.standard_resolution.url + ')';
         document.getElementById('insta').innerHTML = username;
       }

@@ -1,4 +1,5 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var config = require('./config');
@@ -7,6 +8,8 @@ var Twit = require('twit');
 
 var callback_url = process.env.CALLBACK_URL + '/callback';
 var hashtag = 'blacklivesmatter';
+
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');

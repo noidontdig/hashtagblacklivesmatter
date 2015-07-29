@@ -1,4 +1,4 @@
-#hashtagblacklivesmatter
+#[hashtagblacklivesmatter](http://www.hashtagblacklivesmatter.io/)
 
 Real-time #blacklivesmatter conversation from instagram + twitter.
 

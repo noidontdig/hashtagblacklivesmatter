@@ -50,7 +50,7 @@
       function showInsta (data) {
         var insta = data.data[0];
         var username = '<a href="' + insta.link + '" target="_blank">&commat;' + insta.user.username + '</a>';
-        document.body.style.backgroundImage = 'url(' + insta.images.standard_resolution.url + ')';
+        document.body.style.backgroundImage = 'url(' + insta.images.low_resolution.url + ')';
         document.getElementById('insta').innerHTML = username;
       }
     </script>
